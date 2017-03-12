@@ -11853,14 +11853,14 @@ Regression corresponds to continuous output, whereas classification has few outp
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Calculate number of students</span>
 <span class="n">n_students</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="c1"># TODO: Calculate number of features</span>
-<span class="n">n_features</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">n_features</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
 
 <span class="c1"># TODO: Calculate passing students</span>
 <span class="n">n_passed</span> <span class="o">=</span> <span class="n">student_data</span><span class="p">[</span><span class="n">student_data</span><span class="p">[</span><span class="s1">&#39;passed&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;yes&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -11890,7 +11890,7 @@ Regression corresponds to continuous output, whereas classification has few outp
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Total number of students: 395
-Number of features: 31
+Number of features: 30
 Number of students who passed: 265
 Number of students who failed: 130
 Graduation rate of the class: 67.09%
@@ -11916,7 +11916,7 @@ Graduation rate of the class: 67.09%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Extract feature columns</span>
@@ -11998,7 +11998,7 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">preprocess_features</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
@@ -12069,7 +12069,7 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import any additional functionality you may need here</span>
@@ -12082,7 +12082,7 @@ Feature values:
 <span class="n">num_test</span> <span class="o">=</span> <span class="n">X_all</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">num_train</span>
 
 <span class="c1"># TODO: Shuffle and split the dataset into the number of training and testing points above</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">train_size</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mi">95</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
 <span class="c1"># Show the results of the split</span>
 <span class="k">print</span> <span class="s2">&quot;Training set has {} samples.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -12099,8 +12099,8 @@ Feature values:
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Training set has 296 samples.
-Testing set has 99 samples.
+<pre>Training set has 300 samples.
+Testing set has 95 samples.
 </pre>
 </div>
 </div>
@@ -12154,9 +12154,9 @@ Testing set has 99 samples.
 <ol>
 <li>Support Vector Machines (SVM)<ul>
 <li>SVM for Protein Fold and Remote Homology Detection - <a href="http://www.clopinet.com/SVM.applications.html">http://www.clopinet.com/SVM.applications.html</a></li>
-<li>It has a regularisation parameter, which makes the user think about avoiding over-fitting. It also uses the kernel trick, so you can build in expert knowledge about the problem via engineering the kernel</li>
+<li>An important benefit of the support vector machine approach is that the complexity of the resulting classifier is characterised by the number of support vectors rather than the dimensionality of the transformed space. As a result, support vector machines tend to be less prone to problems of over-fitting than some other methods.</li>
 <li>This only really covers the determination of the parameters for a given value of the regularisation and kernel parameters and choice of kernel. In a way the SVM moves the problem of over-fitting from optimising the parameters to model selection.</li>
-<li>Works well if have multiple dimentions, which is true in our case.
+<li>Works well if have multiple dimensions, which is true in our case.
 <br><br></li>
 </ul>
 </li>
@@ -12200,7 +12200,7 @@ Testing set has 99 samples.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">train_classifier</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">):</span>
@@ -12273,7 +12273,7 @@ Testing set has 99 samples.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import the three supervised learning models from sklearn</span>
@@ -12284,7 +12284,7 @@ Testing set has 99 samples.
 <span class="c1"># TODO: Initialize the three models</span>
 <span class="n">clf_A</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">()</span>
 <span class="n">clf_B</span> <span class="o">=</span> <span class="n">neighbors</span><span class="o">.</span><span class="n">KNeighborsClassifier</span><span class="p">()</span>
-<span class="n">clf_C</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">()</span>
+<span class="n">clf_C</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span> <span class="o">=</span> <span class="mi">42</span><span class="p">)</span>
 
 <span class="c1"># TODO: Set up the training set sizes</span>
 <span class="n">X_train_100</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span>
@@ -12331,69 +12331,69 @@ Testing set has 99 samples.
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Training a SVC using a training set size of 100. . .
-Trained model in 0.0016 seconds
+Trained model in 0.0015 seconds
 Made predictions in 0.0008 seconds.
-F1 score for training set: 0.8633.
-Made predictions in 0.0009 seconds.
-F1 score for test set: 0.7651.
+F1 score for training set: 0.8777.
+Made predictions in 0.0008 seconds.
+F1 score for test set: 0.7746.
 -
 Training a SVC using a training set size of 200. . .
-Trained model in 0.0031 seconds
-Made predictions in 0.0024 seconds.
-F1 score for training set: 0.8762.
-Made predictions in 0.0010 seconds.
-F1 score for test set: 0.7848.
+Trained model in 0.0028 seconds
+Made predictions in 0.0019 seconds.
+F1 score for training set: 0.8679.
+Made predictions in 0.0011 seconds.
+F1 score for test set: 0.7815.
 -
-Training a SVC using a training set size of 296. . .
-Trained model in 0.0053 seconds
-Made predictions in 0.0041 seconds.
-F1 score for training set: 0.8764.
-Made predictions in 0.0014 seconds.
-F1 score for test set: 0.7871.
+Training a SVC using a training set size of 300. . .
+Trained model in 0.0060 seconds
+Made predictions in 0.0047 seconds.
+F1 score for training set: 0.8761.
+Made predictions in 0.0015 seconds.
+F1 score for test set: 0.7838.
 -
 ================================
 Training a KNeighborsClassifier using a training set size of 100. . .
-Trained model in 0.0006 seconds
-Made predictions in 0.0018 seconds.
-F1 score for training set: 0.7852.
-Made predictions in 0.0014 seconds.
-F1 score for test set: 0.7222.
+Trained model in 0.0010 seconds
+Made predictions in 0.0023 seconds.
+F1 score for training set: 0.8060.
+Made predictions in 0.0012 seconds.
+F1 score for test set: 0.7246.
 -
 Training a KNeighborsClassifier using a training set size of 200. . .
-Trained model in 0.0006 seconds
-Made predictions in 0.0023 seconds.
-F1 score for training set: 0.8771.
-Made predictions in 0.0013 seconds.
-F1 score for test set: 0.7867.
+Trained model in 0.0005 seconds
+Made predictions in 0.0028 seconds.
+F1 score for training set: 0.8800.
+Made predictions in 0.0015 seconds.
+F1 score for test set: 0.7692.
 -
-Training a KNeighborsClassifier using a training set size of 296. . .
-Trained model in 0.0010 seconds
-Made predictions in 0.0072 seconds.
-F1 score for training set: 0.8767.
-Made predictions in 0.0022 seconds.
-F1 score for test set: 0.7755.
+Training a KNeighborsClassifier using a training set size of 300. . .
+Trained model in 0.0009 seconds
+Made predictions in 0.0047 seconds.
+F1 score for training set: 0.8809.
+Made predictions in 0.0017 seconds.
+F1 score for test set: 0.7801.
 -
 ================================
 Training a DecisionTreeClassifier using a training set size of 100. . .
-Trained model in 0.0007 seconds
-Made predictions in 0.0002 seconds.
+Trained model in 0.0025 seconds
+Made predictions in 0.0006 seconds.
 F1 score for training set: 1.0000.
-Made predictions in 0.0001 seconds.
-F1 score for test set: 0.6190.
+Made predictions in 0.0002 seconds.
+F1 score for test set: 0.6552.
 -
 Training a DecisionTreeClassifier using a training set size of 200. . .
-Trained model in 0.0010 seconds
+Trained model in 0.0011 seconds
 Made predictions in 0.0002 seconds.
 F1 score for training set: 1.0000.
 Made predictions in 0.0001 seconds.
-F1 score for test set: 0.7259.
+F1 score for test set: 0.7500.
 -
-Training a DecisionTreeClassifier using a training set size of 296. . .
+Training a DecisionTreeClassifier using a training set size of 300. . .
 Trained model in 0.0015 seconds
 Made predictions in 0.0002 seconds.
 F1 score for training set: 1.0000.
 Made predictions in 0.0001 seconds.
-F1 score for test set: 0.5920.
+F1 score for test set: 0.6613.
 -
 </pre>
 </div>
@@ -12431,24 +12431,24 @@ F1 score for test set: 0.5920.
 <tbody>
 <tr>
 <td style="text-align:center">100</td>
-<td style="text-align:center">0.0016</td>
-<td style="text-align:center">0.0008</td>
-<td style="text-align:center">0.8633</td>
+<td style="text-align:center">0.0026</td>
+<td style="text-align:center">0.0009</td>
+<td style="text-align:center">0.8777</td>
 <td style="text-align:center">0.7651</td>
 </tr>
 <tr>
 <td style="text-align:center">200</td>
-<td style="text-align:center">0.0031</td>
-<td style="text-align:center">0.0024</td>
-<td style="text-align:center">0.8762</td>
-<td style="text-align:center">0.7848</td>
+<td style="text-align:center">0.0029</td>
+<td style="text-align:center">0.0020</td>
+<td style="text-align:center">0.8679</td>
+<td style="text-align:center">0.7815</td>
 </tr>
 <tr>
 <td style="text-align:center">300</td>
-<td style="text-align:center">0.0053</td>
-<td style="text-align:center">0.0041</td>
-<td style="text-align:center">0.8764</td>
-<td style="text-align:center">0.7871</td>
+<td style="text-align:center">0.0071</td>
+<td style="text-align:center">0.0040</td>
+<td style="text-align:center">0.8761</td>
+<td style="text-align:center">0.7838</td>
 </tr>
 </tbody>
 </table>
@@ -12465,24 +12465,24 @@ F1 score for test set: 0.5920.
 <tbody>
 <tr>
 <td style="text-align:center">100</td>
-<td style="text-align:center">0.0006</td>
-<td style="text-align:center">0.0018</td>
-<td style="text-align:center">0.7852</td>
-<td style="text-align:center">0.7222</td>
+<td style="text-align:center">0.0005</td>
+<td style="text-align:center">0.0011</td>
+<td style="text-align:center">0.8060</td>
+<td style="text-align:center">0.7246</td>
 </tr>
 <tr>
 <td style="text-align:center">200</td>
 <td style="text-align:center">0.0006</td>
 <td style="text-align:center">0.0023</td>
-<td style="text-align:center">0.8771</td>
-<td style="text-align:center">0.7867</td>
+<td style="text-align:center">0.8800</td>
+<td style="text-align:center">0.7692</td>
 </tr>
 <tr>
 <td style="text-align:center">300</td>
-<td style="text-align:center">0.0010</td>
-<td style="text-align:center">0.0072</td>
-<td style="text-align:center">0.8767</td>
-<td style="text-align:center">0.7755</td>
+<td style="text-align:center">0.0006</td>
+<td style="text-align:center">0.0046</td>
+<td style="text-align:center">0.8809</td>
+<td style="text-align:center">0.7801</td>
 </tr>
 </tbody>
 </table>
@@ -12499,24 +12499,24 @@ F1 score for test set: 0.5920.
 <tbody>
 <tr>
 <td style="text-align:center">100</td>
-<td style="text-align:center">0.0007</td>
+<td style="text-align:center">0.0008</td>
 <td style="text-align:center">0.0002</td>
 <td style="text-align:center">1.0000</td>
-<td style="text-align:center">0.6190</td>
+<td style="text-align:center">0.6552</td>
 </tr>
 <tr>
 <td style="text-align:center">200</td>
-<td style="text-align:center">0.0010</td>
+<td style="text-align:center">0.0011</td>
 <td style="text-align:center">0.0002</td>
 <td style="text-align:center">1.0000</td>
-<td style="text-align:center">0.7259</td>
+<td style="text-align:center">0.7500</td>
 </tr>
 <tr>
 <td style="text-align:center">300</td>
 <td style="text-align:center">0.0015</td>
 <td style="text-align:center">0.0002</td>
 <td style="text-align:center">1.0000</td>
-<td style="text-align:center">0.5920</td>
+<td style="text-align:center">0.6613</td>
 </tr>
 </tbody>
 </table>
@@ -12572,9 +12572,31 @@ All the 3 models have really good F1 score and prediction time. But out of all 3
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong>
 <br>
-Here we have students information like age, passed or not, studytime etc. All these information can be used to divide the students based on this information into 2 categories: Passed or not pass.
+Referred from: <a href="https://www.quora.com/What-does-support-vector-machine-SVM-mean-in-laymans-terms">https://www.quora.com/What-does-support-vector-machine-SVM-mean-in-laymans-terms</a>
 <br>
-SVM helps us in doing exactly this. It takes all the information about the entity and tries to divide it in 2 classes. This is exactly what we want model to do.</p>
+<br>
+Here we have students information like age, studytime etc. All these information can be used to divide the students based on this information into 2 categories: Passed or not pass.
+<br>
+<br>
+SVMs are linear classifiers which assume that your data are linearly separable. In the simplified two-dimensional case, imagine that your data are plotted along the x- and y-axes. The algorithm attempts to find an optimal vector (in this case, a line) that separates them. Indeed, the algorithm would like to separate the instances by a maximum margin. This is so that unseen examples are more likely to be classified correctly. In higher dimensional spaces, the algorithm searches for a hyperplane, but the principle is the same.
+<br>
+<br>
+We have 2 colors of balls on the table that we want to separate.</p>
+<p><img src="https://qph.ec.quoracdn.net/main-qimg-8d402630b6bb8d4eb61b4fbe4b67e8a5" alt=""></p>
+<p>We get a stick and put it on the table, this works pretty well right?</p>
+<p><img src="https://qph.ec.quoracdn.net/main-qimg-65bc1461fbc2a5f314b6076c6ad65d00" alt=""></p>
+<p>Some villain comes and places more balls on the table, it kind of works but one of the balls is on the wrong side and there is probably a better place to put the stick now.</p>
+<p><img src="https://qph.ec.quoracdn.net/main-qimg-9648e834a3d4d73e443fbf5b078fbaa0" alt=""></p>
+<p>SVMs try to put the stick in the best possible place by having as big a gap on either side of the stick as possible.</p>
+<p><img src="https://qph.ec.quoracdn.net/main-qimg-151e8d7c44d31a0ed3765267b03df39e" alt=""></p>
+<p>Now when the villain returns the stick is still in a pretty good spot.</p>
+<p><img src="https://qph.ec.quoracdn.net/main-qimg-80b022c021568bbc4dfe7d0c681f3217" alt=""></p>
+<p>There is another trick in the SVM toolbox that is even more important. Say the villain has seen how good you are with a stick so he gives you a new challenge.</p>
+<p><img src="https://qph.ec.quoracdn.net/main-qimg-2aa494f950de9c915b45983bd1eb6dd0-p" alt=""></p>
+<p>There’s no stick in the world that will let you split those balls well, so what do you do? You flip the table of course! Throwing the balls into the air. Then, with your pro ninja skills, you grab a sheet of paper and slip it between the balls. A technique known as the "kernel trick" allows SVMs to be used on non-linearly separable data.</p>
+<p><img src="https://qph.ec.quoracdn.net/main-qimg-d6c7a0b9c8500f0b96b4a36c84445b2b-p" alt=""></p>
+<p>Now, looking at the balls from where the villain is standing, they balls will look split by some curvy line.</p>
+<p><img src="https://qph.ec.quoracdn.net/main-qimg-65365aff97683e62e787d9a884191fc2" alt=""></p>
 
 </div>
 </div>
